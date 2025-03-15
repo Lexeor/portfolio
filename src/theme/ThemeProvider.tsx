@@ -1,9 +1,13 @@
-import { Global, ThemeProvider as EmotionThemeProvider } from "@emotion/react";
+import {
+  Global,
+  Theme,
+  ThemeProvider as EmotionThemeProvider,
+} from "@emotion/react";
 import { createContext, ReactNode, useContext, useState } from "react";
-import { darkTheme, lightTheme, ThemeType } from "./main";
+import { darkTheme, lightTheme } from "./main";
 
 interface ThemeContextType {
-  theme: ThemeType;
+  theme: Theme;
   toggleTheme: () => void;
 }
 
