@@ -4,7 +4,7 @@ import {
   ThemeProvider as EmotionThemeProvider,
 } from "@emotion/react";
 import { createContext, ReactNode, useContext, useState } from "react";
-import { darkTheme, lightTheme } from "./main";
+import { darkTheme, lightTheme, ThemeType } from "./main";
 
 interface ThemeContextType {
   theme: Theme;
@@ -31,7 +31,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <EmotionThemeProvider theme={theme}>
         <Global
-          styles={(theme: any) => ({
+          styles={(theme: ThemeType) => ({
             html: {
               backgroundColor: theme.colorBg,
               color: theme.colorText,
