@@ -1,6 +1,7 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { useTheme } from "../theme/ThemeProvider.tsx";
+import { transition } from "../utils/transition-styled.ts";
 
 const ThemeSwitch = () => {
   const { theme, toggleTheme } = useTheme();
@@ -30,7 +31,7 @@ const Button = styled.button`
   cursor: pointer;
 
   & > div {
-    transition: transform 0.3s ease-in-out;
+    ${transition("transform")};
   }
 
   &:focus {
@@ -57,9 +58,7 @@ const Sphere = styled.div`
       height: 14px;
     `};
 
-  transition-property: background-color, color, width, height;
-  transition-duration: 0.3s;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  ${transition(["background-color", "color", "width", "height"])};
 `;
 
 const SunRay = styled.div<{ index: number }>`
@@ -72,9 +71,7 @@ const SunRay = styled.div<{ index: number }>`
   left: 50%;
   transform-origin: center;
 
-  transition-property: background-color, color, transform, width;
-  transition-duration: 0.3s;
-  transition-timing-function: cubic-bezier(0.9, 0, 0.3, 1);
+  ${transition(["background-color", "color", "transform", "width"])};
 
   ${(p) => css`
     transform: translate(-50%, -50%) rotate(${p.index * 45}deg) translateX(10px);
@@ -95,9 +92,7 @@ const Shadow = styled.div<{ dark?: boolean }>`
   transform: translateX(12px) translateY(4px) scale(0);
   z-index: 3;
 
-  transition-property: background-color, color, transform;
-  transition-duration: 0.3s;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  ${transition(["background-color", "color", "transform"])};
 
   ${(p) =>
     p.dark &&

@@ -2,6 +2,7 @@ import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { Dayjs } from "dayjs";
 import { FC, ReactNode } from "react";
+import { transition } from "../utils/transition-styled.ts";
 
 interface ITimeLineItem {
   dateStart: Dayjs;
@@ -74,9 +75,8 @@ const Line = styled("div")<{ hideLine?: boolean }>`
   flex-direction: column;
   flex: 1;
   transform: translateX(4px) translateY(-10px);
-  transition-property: background-color;
-  transition-duration: 0.3s;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  ${transition("background-color")};
 
   ${(p) =>
     p.hideLine &&
@@ -100,9 +100,7 @@ const Line = styled("div")<{ hideLine?: boolean }>`
     border-radius: 50%;
     border: 2px solid ${(p) => p.theme.colorText};
 
-    transition-property: background-color, border;
-    transition-duration: 0.3s;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    ${transition(["background-color", "border"])};
   }
 
   &:after {
