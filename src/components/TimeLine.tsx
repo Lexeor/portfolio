@@ -1,7 +1,7 @@
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import {Dayjs} from "dayjs";
-import {FC, ReactNode} from "react";
-import {css} from "@emotion/react";
+import { Dayjs } from "dayjs";
+import { FC, ReactNode } from "react";
 
 interface ITimeLineItem {
   dateStart: Dayjs;
@@ -12,30 +12,25 @@ interface ITimeLineItem {
   lastItem?: boolean;
 }
 
-const TimeLineItem: FC<{ item: ITimeLineItem, lastItem?: boolean }> = ({
-                                                                         item: {
-                                                                           dateStart,
-                                                                           dateEnd,
-                                                                           title,
-                                                                           subtitle,
-                                                                           description
-                                                                         },
-                                                                         lastItem
-                                                                       }) => {
+const TimeLineItem: FC<{ item: ITimeLineItem; lastItem?: boolean }> = ({
+  item: { dateStart, dateEnd, title, subtitle, description },
+  lastItem,
+}) => {
   return (
     <RootItem>
       <Dates>
-        {dateStart.format("MMM YYYY")} - {dateEnd?.format("MMM YYYY") || 'Present'}
+        {dateStart.format("MMM YYYY")} -{" "}
+        {dateEnd?.format("MMM YYYY") || "Present"}
       </Dates>
-      <Line hideLine={lastItem}/>
+      <Line hideLine={lastItem} />
       <div>
         <Title>{title}</Title>
         <Subtitle>{subtitle}</Subtitle>
         {description}
       </div>
     </RootItem>
-  )
-}
+  );
+};
 
 const RootItem = styled.div`
   display: grid;
@@ -49,10 +44,16 @@ interface ITimeLine {
   items: ITimeLineItem[];
 }
 
-const TimeLine: FC<ITimeLine> = ({items}) => {
+const TimeLine: FC<ITimeLine> = ({ items }) => {
   return (
     <Root>
-      {items.map((item, index) => <TimeLineItem key={item.title} item={item} lastItem={index === items.length - 1}/>)}
+      {items.map((item, index) => (
+        <TimeLineItem
+          key={item.title}
+          item={item}
+          lastItem={index === items.length - 1}
+        />
+      ))}
     </Root>
   );
 };
@@ -64,11 +65,11 @@ const Root = styled.div`
   gap: 8px;
 `;
 
-const Line = styled('div')<{ hideLine?: boolean }>`
+const Line = styled("div")<{ hideLine?: boolean }>`
   position: relative;
   width: 1px;
   height: 110%;
-  background-color: ${p => p.theme.colorText}80;
+  background-color: ${(p) => p.theme.colorText}80;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -77,33 +78,32 @@ const Line = styled('div')<{ hideLine?: boolean }>`
   transition-duration: 0.3s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
-  ${p => p.hideLine && css`
-    height: 20px;
-  `};
+  ${(p) =>
+    p.hideLine &&
+    css`
+      height: 20px;
+    `};
 
   &:hover {
     &:after {
-      background-color: ${p => p.theme.colorText};
+      background-color: ${(p) => p.theme.colorText};
     }
   }
 
   &:after {
     position: absolute;
-    content: '';
+    content: "";
     display: block;
     width: 8px;
     height: 8px;
-    background-color: ${p => p.theme.colorBg};
+    background-color: ${(p) => p.theme.colorBg};
     border-radius: 50%;
-    border: 2px solid ${p => p.theme.colorText};
+    border: 2px solid ${(p) => p.theme.colorText};
 
     transition-property: background-color, border;
     transition-duration: 0.3s;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
-
   }
-
 
   &:after {
     top: 2px;
@@ -121,7 +121,7 @@ const Title = styled.div`
 
 const Subtitle = styled.div`
   margin-bottom: 4px;
-  color: ${p => p.theme.colorText}80;
+  color: ${(p) => p.theme.colorText}80;
   font-size: 0.8em;
 `;
 

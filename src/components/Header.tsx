@@ -1,10 +1,10 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 import ThemeSwitch from "./ThemeSwitch.tsx";
 
 const Header = () => {
   return (
     <Root>
-      <ThemeSwitch/>
+      <ThemeSwitch />
     </Root>
   );
 };

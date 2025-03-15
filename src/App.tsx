@@ -1,47 +1,50 @@
 import styled from "@emotion/styled";
-import {ThemeProvider} from "./theme/ThemeProvider.tsx";
-import {LAYOUT_WIDTH} from "./constants.ts";
+import dayjs from "dayjs";
 import Sidebar from "./components/Sidebar.tsx";
 import TimeLine from "./components/TimeLine.tsx";
-import dayjs from "dayjs";
+import { LAYOUT_WIDTH } from "./constants.ts";
+import { ThemeProvider } from "./theme/ThemeProvider.tsx";
 
 const workplaceItems = [
   {
-    dateStart: dayjs('2022-08-22'),
+    dateStart: dayjs("2022-08-22"),
     title: "Frontend Engineer",
     subtitle: "Treenity",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi autem beatae debitis delectus dolor, eum\n" +
-      "        fugiat fugit in ipsam molestias non obcaecati officia quas quo rerum velit veritatis voluptates."
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi autem beatae debitis delectus dolor, eum\n" +
+      "        fugiat fugit in ipsam molestias non obcaecati officia quas quo rerum velit veritatis voluptates.",
   },
   {
-    dateStart: dayjs('2022-08-22'),
-    dateEnd: dayjs('2022-08-22'),
+    dateStart: dayjs("2022-08-22"),
+    dateEnd: dayjs("2022-08-22"),
     title: "Junior Frontend Engineer",
     subtitle: "Treenity",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi autem beatae debitis delectus dolor, eum\n" +
-      "        fugiat fugit in ipsam molestias non obcaecati officia quas quo rerum velit veritatis voluptates."
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi autem beatae debitis delectus dolor, eum\n" +
+      "        fugiat fugit in ipsam molestias non obcaecati officia quas quo rerum velit veritatis voluptates.",
   },
   {
-    dateStart: dayjs('2020-04-21'),
-    dateEnd: dayjs('2022-08-22'),
+    dateStart: dayjs("2020-04-21"),
+    dateEnd: dayjs("2022-08-22"),
     title: "Old place",
     subtitle: "Engineer",
-    description: "OLD Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi autem beatae debitis delectus dolor, eum\n" +
-      "        fugiat fugit in ipsam molestias non obcaecati officia quas quo rerum velit veritatis voluptates."
-  }
+    description:
+      "OLD Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi autem beatae debitis delectus dolor, eum\n" +
+      "        fugiat fugit in ipsam molestias non obcaecati officia quas quo rerum velit veritatis voluptates.",
+  },
 ];
 
 function App() {
   return (
     <ThemeProvider>
       <AppRoot>
-        <Sidebar/>
+        <Sidebar />
         <Content>
-          <TimeLine items={workplaceItems}/>
+          <TimeLine items={workplaceItems} />
         </Content>
       </AppRoot>
     </ThemeProvider>
-  )
+  );
 }
 
 const AppRoot = styled.div`
@@ -63,4 +66,4 @@ const Content = styled.div`
   padding: 12px 16px;
 `;
 
-export default App
+export default App;

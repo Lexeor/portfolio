@@ -1,6 +1,6 @@
-import {createContext, ReactNode, useContext, useState} from "react";
-import {Global, ThemeProvider as EmotionThemeProvider} from "@emotion/react";
-import {darkTheme, lightTheme, ThemeType} from "./main";
+import { Global, ThemeProvider as EmotionThemeProvider } from "@emotion/react";
+import { createContext, ReactNode, useContext, useState } from "react";
+import { darkTheme, lightTheme, ThemeType } from "./main";
 
 interface ThemeContextType {
   theme: ThemeType;
@@ -17,21 +17,23 @@ export const useTheme = () => {
   return context;
 };
 
-export const ThemeProvider = ({children}: { children: ReactNode }) => {
+export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [isDark, setIsDark] = useState(false);
   const theme = isDark ? darkTheme : lightTheme;
 
   const toggleTheme = () => setIsDark((prev) => !prev);
 
   return (
-    <ThemeContext.Provider value={{theme, toggleTheme}}>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <EmotionThemeProvider theme={theme}>
-        <Global styles={(theme: any) => ({
-          html: {
-            backgroundColor: theme.colorBg,
-            color: theme.colorText,
-          },
-        })}/>
+        <Global
+          styles={(theme: any) => ({
+            html: {
+              backgroundColor: theme.colorBg,
+              color: theme.colorText,
+            },
+          })}
+        />
         {children}
       </EmotionThemeProvider>
     </ThemeContext.Provider>

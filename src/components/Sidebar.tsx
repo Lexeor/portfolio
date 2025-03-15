@@ -4,7 +4,7 @@ import Header from "./Header.tsx";
 const Sidebar = () => {
   return (
     <Root>
-      <Header/>
+      <Header />
     </Root>
   );
 };
