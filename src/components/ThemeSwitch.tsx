@@ -30,7 +30,8 @@ const Button = styled.button`
   cursor: pointer;
   width: 48px;
   height: 48px;
-  border: 1px solid ${(p) => p.theme.colorPrimary};
+  box-shadow: none;
+  border: 0;
 
   & > div {
     ${transition("transform")};
