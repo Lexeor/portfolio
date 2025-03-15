@@ -68,6 +68,26 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
               color: theme.colorText,
               transition: transition,
             },
+            body: {
+              fontFamily: `"Inter", sans-serif`,
+              margin: 0,
+              position: "relative",
+              display: "flex",
+              minWidth: "320px",
+              minHeight: "100vh",
+            },
+            p: {
+              margin: 0,
+              padding: 0,
+            },
+            a: {
+              color: theme.colorPrimary,
+            },
+            "#root": {
+              maxWidth: "1280px",
+              width: "100%",
+              margin: "0 auto",
+            },
           })}
         />
         {children}
