@@ -121,6 +121,7 @@ const Subtitle = styled.div`
   margin-bottom: 4px;
   color: ${(p) => p.theme.colorText}80;
   font-size: 0.8em;
+  ${transition("color")};
 `;
 
 export default TimeLine;
