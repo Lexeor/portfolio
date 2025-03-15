@@ -25,10 +25,12 @@ const ThemeSwitch = () => {
 
 const Button = styled.button`
   position: relative;
-  border: 0;
   background-color: transparent;
   outline: none;
   cursor: pointer;
+  width: 48px;
+  height: 48px;
+  border: 1px solid ${(p) => p.theme.colorPrimary};
 
   & > div {
     ${transition("transform")};
@@ -38,8 +40,12 @@ const Button = styled.button`
     outline: none;
   }
 
-  &:hover > div {
-    transform: rotateZ(-15deg);
+  &:hover {
+    border-color: ${(p) => p.theme.colorPrimaryHover};
+
+    & > div {
+      transform: rotateZ(-15deg);
+    }
   }
 `;
 
