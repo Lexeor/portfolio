@@ -17,6 +17,7 @@ const Root = styled.div`
   justify-content: center;
   width: 100%;
   height: 70px;
+  border: 1px solid green;
 `;
 
 export default Header;
