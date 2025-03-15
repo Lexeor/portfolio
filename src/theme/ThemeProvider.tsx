@@ -1,4 +1,5 @@
 import {
+  css,
   Global,
   Theme,
   ThemeProvider as EmotionThemeProvider,
@@ -12,6 +13,7 @@ import {
 } from "react";
 import { darkTheme, lightTheme, ThemeType } from "./main";
 import { TRANSITION_TIMING_DEFAULT } from "../constants.ts";
+import { transition as transitionStyled } from "../utils/transition-styled.ts";
 
 const THEME_STORAGE_KEY = "data-theme";
 
@@ -58,38 +60,63 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     );
   }, []);
 
+  const styles = (theme: Theme) => css`
+    html {
+      background-color: ${theme.colorBg};
+      color: ${theme.colorText};
+      transition: ${transition};
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      margin: 0;
+      position: relative;
+      display: flex;
+      min-width: 320px;
+      min-height: 100vh;
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      color: ${theme.colorPrimary};
+    }
+
+    #root {
+      max-width: 1280px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    p,
+    a,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      ${transitionStyled("color")};
+    }
+
+    button {
+      appearance: none;
+      background: none;
+      border: none;
+      padding: 0;
+      font: inherit;
+      color: inherit;
+      line-height: normal;
+    }
+  `;
+
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <EmotionThemeProvider theme={theme}>
-        <Global
-          styles={(theme: ThemeType) => ({
-            html: {
-              backgroundColor: theme.colorBg,
-              color: theme.colorText,
-              transition: transition,
-            },
-            body: {
-              fontFamily: `"Inter", sans-serif`,
-              margin: 0,
-              position: "relative",
-              display: "flex",
-              minWidth: "320px",
-              minHeight: "100vh",
-            },
-            p: {
-              margin: 0,
-              padding: 0,
-            },
-            a: {
-              color: theme.colorPrimary,
-            },
-            "#root": {
-              maxWidth: "1280px",
-              width: "100%",
-              margin: "0 auto",
-            },
-          })}
-        />
+        <Global styles={(theme: ThemeType) => styles(theme)} />
         {children}
       </EmotionThemeProvider>
     </ThemeContext.Provider>
