@@ -1,33 +1,25 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { Dayjs } from "dayjs";
-import { FC, ReactNode } from "react";
-import { transition } from "../utils/transition-styled.ts";
-
-interface ITimeLineItem {
-  dateStart: Dayjs;
-  dateEnd?: Dayjs;
-  title: string;
-  subtitle?: string;
-  description: string | ReactNode;
-  lastItem?: boolean;
-}
+import { FC } from "react";
+import routes from "../../utils/routes.ts";
+import { transition } from "../../utils/transition-styled.ts";
+import { ITimeLineItem } from "./types.ts";
 
 const TimeLineItem: FC<{ item: ITimeLineItem; lastItem?: boolean }> = ({
-  item: { dateStart, dateEnd, title, subtitle, description },
+  item: { dateStart, dateEnd, title, subtitle, description, id },
   lastItem,
 }) => {
   return (
-    <RootItem>
-      <Dates>
+    <RootItem onClick={() => location.assign(routes.projects[id])}>
+      <Dates about="dates">
         {dateStart.format("MMM YYYY")} -{" "}
         {dateEnd?.format("MMM YYYY") || "Present"}
       </Dates>
-      <Line hideLine={lastItem} />
+      <Line about="line" hideLine={lastItem} />
       <div>
-        <Title>{title}</Title>
-        <Subtitle>{subtitle}</Subtitle>
-        {description}
+        <Title about="title">{subtitle}</Title>
+        <Subtitle>{title}</Subtitle>
+        <Desc>{description}</Desc>
       </div>
     </RootItem>
   );
@@ -39,6 +31,19 @@ const RootItem = styled.div`
   width: 100%;
   gap: 8px;
   letter-spacing: -0.48px;
+  cursor: pointer;
+
+  &:hover {
+    div[about="line"]:after {
+      border-color: ${(p) => p.theme.colorPrimary};
+      background: ${(p) => p.theme.colorPrimary};
+    }
+
+    p[about="title"],
+    p[about="dates"] {
+      color: ${(p) => p.theme.colorPrimary};
+    }
+  }
 `;
 
 interface ITimeLine {
@@ -50,7 +55,7 @@ const TimeLine: FC<ITimeLine> = ({ items }) => {
     <Root>
       {items.map((item, index) => (
         <TimeLineItem
-          key={item.title}
+          key={`${item.title}-${index}`}
           item={item}
           lastItem={index === items.length - 1}
         />
@@ -84,12 +89,6 @@ const Line = styled("div")<{ hideLine?: boolean }>`
       height: 20px;
     `};
 
-  &:hover {
-    &:after {
-      background-color: ${(p) => p.theme.colorText};
-    }
-  }
-
   &:after {
     position: absolute;
     content: "";
@@ -109,15 +108,17 @@ const Line = styled("div")<{ hideLine?: boolean }>`
   }
 `;
 
-const Dates = styled.div`
+const Dates = styled.p`
   font-size: 0.8em;
 `;
 
-const Title = styled.div`
+const Desc = styled.p``;
+
+const Title = styled.p`
   font-weight: 700;
 `;
 
-const Subtitle = styled.div`
+const Subtitle = styled.p`
   margin-bottom: 4px;
   color: ${(p) => p.theme.colorText}80;
   font-size: 0.8em;

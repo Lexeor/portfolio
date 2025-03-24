@@ -1,6 +1,7 @@
 export const lightTheme = {
   name: "light",
   colorPrimary: "#2DB897",
+  colorPrimarySecondary: "#2d816a",
   colorPrimaryHover: "#1e7962",
   colorBg: "#ffffff",
   colorText: "#1e1e1e",
@@ -11,6 +12,7 @@ export const lightTheme = {
 export const darkTheme = {
   name: "dark",
   colorPrimary: "#2DB897",
+  colorPrimarySecondary: "#2d816a",
   colorPrimaryHover: "#1e7962",
   colorBg: "#1e1e1e",
   colorText: "#ffffff",

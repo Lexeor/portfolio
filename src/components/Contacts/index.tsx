@@ -6,8 +6,8 @@ import { IContactsProps } from "./types.ts";
 const Contacts: FC<IContactsProps> = ({ list }) => {
   return (
     <Root>
-      {list.map((contactItem) => (
-        <ContactItem item={contactItem} />
+      {list.map((contactItem, index) => (
+        <ContactItem item={contactItem} key={`${index}-${contactItem.value}`} />
       ))}
     </Root>
   );

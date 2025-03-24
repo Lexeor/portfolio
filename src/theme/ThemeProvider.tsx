@@ -11,9 +11,9 @@ import {
   useEffect,
   useState,
 } from "react";
-import { darkTheme, lightTheme, ThemeType } from "./main";
 import { TRANSITION_TIMING_DEFAULT } from "../constants.ts";
 import { transition as transitionStyled } from "../utils/transition-styled.ts";
+import { darkTheme, lightTheme, ThemeType } from "./main";
 
 const THEME_STORAGE_KEY = "data-theme";
 
@@ -100,6 +100,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     h5,
     h6 {
       ${transitionStyled("color")};
+      margin: 0;
     }
 
     button {
