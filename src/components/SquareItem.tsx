@@ -1,15 +1,15 @@
-import { useTheme } from "@emotion/react";
+import { css, useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
 import { type FC } from "react";
-import { transition } from "../../utils/transition-styled.ts";
-import { type SkillImageItem, type SkillItem } from "./types.ts";
+import { transition } from "../utils/transition-styled.ts";
+import { type SkillImageItem, type SkillItem } from "./Skils/types.ts";
 
 interface SkillItemProps {
   item: SkillItem;
 }
 
 const SkillItem: FC<SkillItemProps> = ({ item }) => {
-  const { image, name } = item;
+  const { image, name, link } = item;
   const theme = useTheme();
 
   const themeName = theme.name as keyof SkillImageItem;
@@ -17,14 +17,14 @@ const SkillItem: FC<SkillItemProps> = ({ item }) => {
   const _image = typeof image === "string" ? image : image[themeName];
 
   return (
-    <Root>
+    <Root isLink={!!link} onClick={() => link && window.open(link)}>
       <Image src={_image} alt={`skill-${name}`} />
       <Name>{name}</Name>
     </Root>
   );
 };
 
-const Root = styled.div`
+const Root = styled("div")<{ isLink: boolean }>`
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -35,10 +35,17 @@ const Root = styled.div`
   padding: 8px;
   aspect-ratio: 1/1;
 
-  ${transition("border-color")};
+  ${(p) =>
+    p.isLink &&
+    css`
+      cursor: pointer;
+    `}
+
+  ${transition(["border-color", "background-color"])};
 
   &:hover {
     border-color: ${(p) => p.theme.colorPrimarySecondary};
+    background-color: ${(p) => p.theme.colorBackgroundSecondary};
 
     p {
       font-weight: 700;

@@ -6,4 +6,5 @@ export interface SkillImageItem {
 export interface SkillItem {
   image: string | SkillImageItem;
   name: string;
+  link?: string;
 }

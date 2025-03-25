@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import { type FC } from "react";
+import SquareItem from "../SquareItem";
 import Subtitle from "../Subtitle";
 import Title from "../Title";
-import SkillItem from "./Item";
 import { skillsList } from "./list";
 
 const Skills: FC = () => {
@@ -13,19 +13,19 @@ const Skills: FC = () => {
       <Subtitle>Основные</Subtitle>
       <List>
         {main.map((skillItem, index) => (
-          <SkillItem item={skillItem} key={`${index}-${skillItem.name}`} />
+          <SquareItem item={skillItem} key={`${index}-${skillItem.name}`} />
         ))}
       </List>
       <Subtitle>Дополнительные</Subtitle>
       <List>
         {additional.map((skillItem, index) => (
-          <SkillItem item={skillItem} key={`${index}-${skillItem.name}`} />
+          <SquareItem item={skillItem} key={`${index}-${skillItem.name}`} />
         ))}
       </List>
       <Subtitle>Разберусь "со словарём"</Subtitle>
       <List>
         {dictionary.map((skillItem, index) => (
-          <SkillItem item={skillItem} key={`${index}-${skillItem.name}`} />
+          <SquareItem item={skillItem} key={`${index}-${skillItem.name}`} />
         ))}
       </List>
     </Root>

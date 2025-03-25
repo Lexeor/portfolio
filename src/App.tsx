@@ -1,9 +1,13 @@
 import styled from "@emotion/styled";
-import Projects from "./components/Projects/index.tsx";
+import About from "./components/About";
+import Links from "./components/Links";
+import Projects from "./components/Projects";
+import Recommendations from "./components/Recommendations";
 import Sidebar from "./components/Sidebar.tsx";
-import Skills from "./components/Skils/index.tsx";
+import Skills from "./components/Skils";
 import { LAYOUT_WIDTH } from "./constants.ts";
 import { ThemeProvider } from "./theme/ThemeProvider.tsx";
+import { transition } from "./utils/transition-styled.ts";
 
 function App() {
   return (
@@ -11,8 +15,11 @@ function App() {
       <AppRoot>
         <Sidebar />
         <Content>
+          <About />
           <Skills />
           <Projects />
+          <Links />
+          <Recommendations />
         </Content>
       </AppRoot>
     </ThemeProvider>
@@ -35,6 +42,9 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   padding: 12px 16px;
+  background: ${(p) => p.theme.colorBackground};
+
+  ${transition("background")};
 `;
 
 export default App;

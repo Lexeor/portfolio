@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { transition } from "../utils/transition-styled.ts";
 import Contacts from "./Contacts/index.tsx";
 import Header from "./Header.tsx";
 
@@ -38,9 +39,11 @@ const Root = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 8px;
-  width: 100%;
   height: 100%;
   border-right: 1px solid ${(p) => p.theme.colorPrimary};
+  background: ${(p) => p.theme.colorBackgroundSecondary};
+
+  ${transition(["background", "border-color"])};
 `;
 
 const Photo = styled.div`
