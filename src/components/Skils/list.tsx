@@ -57,6 +57,14 @@ export const skillsList = {
       image: "/icons/skills/docker.svg",
       name: "Docker",
     },
+    {
+      image: "/icons/skills/jest.svg",
+      name: "Jest",
+    },
+    {
+      image: "/icons/skills/prettier.svg",
+      name: "Prettier",
+    },
   ],
   additional: [
     {

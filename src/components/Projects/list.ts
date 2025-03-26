@@ -7,16 +7,15 @@ const workplaceItems = [
     title: "Frontend Engineer",
     id: "treenity" as TimeLineId,
     subtitle: "Treenity",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi autem beatae debitis delectus dolor, eum fugiat fugit in ipsam molestias non obcaecati officia quas quo rerum velit veritatis voluptates.",
+    description: "Онлайн-конструктор сайтов",
   },
   {
-    dateStart: dayjs("2024-02"),
+    dateStart: dayjs("2023-02"),
     title: "Frontend Engineer",
     id: "kvarum" as TimeLineId,
     subtitle: "Kvarum",
     description:
-      "OLD Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi autem beatae debitis delectus dolor, eum fugiat fugit in ipsam molestias non obcaecati officia quas quo rerum velit veritatis voluptates.",
+      "Приложение для создания расписаний и эффективного планирования для повышения конверсии продаж.",
   },
   {
     dateStart: dayjs("2023-01"),
@@ -24,8 +23,7 @@ const workplaceItems = [
     title: "Frontend Engineer",
     id: "kortros" as TimeLineId,
     subtitle: "Kortros",
-    description:
-      "OLD Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi autem beatae debitis delectus dolor, eum fugiat fugit in ipsam molestias non obcaecati officia quas quo rerum velit veritatis voluptates.",
+    description: "Корпоративный сайт девелоперской компании КОРТРОС",
   },
   {
     dateStart: dayjs("2022-10"),
@@ -33,8 +31,7 @@ const workplaceItems = [
     title: "Frontend Engineer",
     id: "darwin" as TimeLineId,
     subtitle: "Darwin",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi autem beatae debitis delectus dolor, eum fugiat fugit in ipsam molestias non obcaecati officia quas quo rerum velit veritatis voluptates.",
+    description: "Сайт финансовой организации",
   },
   {
     dateStart: dayjs("2022-02"),
@@ -42,8 +39,7 @@ const workplaceItems = [
     title: "Frontend Engineer",
     id: "cryptoFairies" as TimeLineId,
     subtitle: "Crypto fairies",
-    description:
-      "OLD Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi autem beatae debitis delectus dolor, eum fugiat fugit in ipsam molestias non obcaecati officia quas quo rerum velit veritatis voluptates.",
+    description: "Сайт финансовой организации",
   },
   {
     dateStart: dayjs("2021-08"),
@@ -51,8 +47,7 @@ const workplaceItems = [
     title: "Frontend Engineer",
     id: "jetup" as TimeLineId,
     subtitle: "Jetup",
-    description:
-      "OLD Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi autem beatae debitis delectus dolor, eum fugiat fugit in ipsam molestias non obcaecati officia quas quo rerum velit veritatis voluptates.",
+    description: "Сайт финансовой организации",
   },
   {
     dateStart: dayjs("2021-03"),
@@ -60,8 +55,7 @@ const workplaceItems = [
     title: "Frontend Engineer",
     id: "trustCar" as TimeLineId,
     subtitle: "Trust Car",
-    description:
-      "OLD Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi autem beatae debitis delectus dolor, eum fugiat fugit in ipsam molestias non obcaecati officia quas quo rerum velit veritatis voluptates.",
+    description: "Сервис аренды автомобилей",
   },
   {
     dateStart: dayjs("2019-09"),
@@ -69,8 +63,7 @@ const workplaceItems = [
     title: "Frontend Engineer",
     id: "izoneum" as TimeLineId,
     subtitle: "Izoneum",
-    description:
-      "OLD Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi autem beatae debitis delectus dolor, eum fugiat fugit in ipsam molestias non obcaecati officia quas quo rerum velit veritatis voluptates.",
+    description: "Сайт финансовой организации",
   },
 ];
 

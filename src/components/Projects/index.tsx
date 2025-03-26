@@ -13,6 +13,8 @@ const Projects: FC = () => {
   );
 };
 
-const Root = styled.div``;
+const Root = styled.div`
+  max-width: 690px;
+`;
 
 export default Projects;

@@ -74,7 +74,7 @@ const Root = styled.div`
 const Line = styled("div")<{ hideLine?: boolean }>`
   position: relative;
   width: 1px;
-  height: 110%;
+  height: 113%;
   background-color: ${(p) => p.theme.colorText}80;
   display: flex;
   flex-direction: column;

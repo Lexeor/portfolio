@@ -27,7 +27,7 @@ const Sidebar = () => {
       <Photo>
         <img src="/image/photo.jpeg" alt="photo image" />
       </Photo>
-      <Name>Grant Lawson</Name>
+      <Name>Evgenii Kolesnik</Name>
       <Position>Frontend Engineer</Position>
       <Contacts list={DEFAULT_CONTACTS} />
     </Root>
